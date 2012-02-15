@@ -1,0 +1,41 @@
+# ==== Clock input ====
+NET "clk50" LOC = AB11 | IOSTANDARD = LVCMOS33;
+
+NET "clk50" TNM_NET = "GRPclk50";
+TIMESPEC "TSclk50" = PERIOD "GRPCLK50" 20 ns HIGH 50%;
+
+# ==== UART ====
+NET "uart_rx" LOC = K18 | IOSTANDARD = LVCMOS33 | PULLUP;
+NET "uart_tx" LOC = L17 | IOSTANDARD = LVCMOS33 | SLEW = SLOW;
+
+# ==== Pushbuttons ====
+#NET "btn1" LOC = AB4 | IOSTANDARD = LVCMOS33;
+#NET "btn2" LOC = AA4 | IOSTANDARD = LVCMOS33;
+#NET "btn3" LOC = AB5 | IOSTANDARD = LVCMOS33;
+
+# ==== LEDs ====
+NET "led1" LOC = B16 | IOSTANDARD = LVCMOS33 | SLEW = QUIETIO | DRIVE = 24;
+NET "led2" LOC = A16 | IOSTANDARD = LVCMOS33 | SLEW = QUIETIO | DRIVE = 24;
+
+# ==== Expansion connector ====
+#NET "exp(0)" LOC = A20;
+#NET "exp(1)" LOC = F16;
+#NET "exp(2)" LOC = A21;
+#NET "exp(3)" LOC = F17;
+#NET "exp(4)" LOC = B21;
+#NET "exp(5)" LOC = H16;
+#NET "exp(6)" LOC = B22;
+#NET "exp(7)" LOC = H17;
+#NET "exp(8)" LOC = G16;
+#NET "exp(9)" LOC = J16;
+#NET "exp(10)" LOC = G17;
+#NET "exp(11)" LOC = K16;
+
+#NET "exp(*)" IOSTANDARD = LVCMOS33;
+
+# avoid floating signals
+#NET "exp(*)" PULLDOWN;
+
+# ==== Timing fixes ====
+NET "hash_clk" TNM_NET = hash_clk;
+TIMESPEC TS_hash_clk = PERIOD "hash_clk" 12.5 ns HIGH 50 %;

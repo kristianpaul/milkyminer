@@ -1,0 +1,13 @@
+*.[oa]
+*.bit
+*.log
+*.swp
+*.bit
+*.elf
+*.bin
+*.fpg
+*.raw
+*.fbi
+boards/milkymist-one/synthesis/build
+tools/byteswap
+boards/milkymist-one/flash/m1nor
